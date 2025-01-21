@@ -1,14 +1,15 @@
 {
   "version": 2,
-  "builds": [{ "src": "index.py", "use": "@vercel/python" }],
-  "headers": [
+  "builds": [
     {
-      "source": "/api",
-      "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
-      ]
+      "src": "app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api",
+      "dest": "/app.py"
     }
   ]
 }
